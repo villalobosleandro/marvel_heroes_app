@@ -6,6 +6,7 @@ import {createNativeStackNavigator } from '@react-navigation/native-stack';
 const Stack = createNativeStackNavigator ();
 import { AuthContext } from './../context/authProvider';
 import { HomeScreen } from './../screens/home';
+import { HeroeDetail } from './../screens/heroeDetail'
 
 const AppStack = props => {
     const { logout } = useContext(AuthContext);
@@ -13,66 +14,68 @@ const AppStack = props => {
     return (
         <Stack.Navigator>
             <Stack.Screen
-                name="Home"
+                name="HomeScreen"
                 component={HomeScreen}
-                options={{
-                    headerTitleAlign: 'center',
-                    headerTitleStyle: {
-                        fontSize: 18,
-                        // color: Constant.colors.whiteColor
-                    },
-                    headerStyle: {
-                        elevation: 0,
-                        // backgroundColor: Constant.colors.backgroundColorPrimary,
-                    },
-                    // headerRight: () => (
-                    //     <View style={{marginRight: 10}}>
-                    //         <MaterialCommunityIcons
-                    //             name="logout"
-                    //             size={30}
-                    //             color={Constant.colors.whiteColor}
-                    //             onPress={() => logout()}
-                    //         />
-                    //     </View>
-                    // )
-                }}
+                options={{header: () => null}}
+                // options={{
+                //     headerTitleAlign: 'center',
+                //     headerTitleStyle: {
+                //         fontSize: 18,
+                //         // color: Constant.colors.whiteColor
+                //     },
+                //     headerStyle: {
+                //         elevation: 0,
+                //         // backgroundColor: Constant.colors.backgroundColorPrimary,
+                //     },
+                //     // headerRight: () => (
+                //     //     <View style={{marginRight: 10}}>
+                //     //         <MaterialCommunityIcons
+                //     //             name="logout"
+                //     //             size={30}
+                //     //             color={Constant.colors.whiteColor}
+                //     //             onPress={() => logout()}
+                //     //         />
+                //     //     </View>
+                //     // )
+                // }}
             />
 
-            {/* <Stack.Screen
-                name="Detail"
-                component={CharacterDetail}
-                options={({ navigation, route }) => ({
-                    headerTitleAlign: 'center',
-                    headerTitleStyle: {
-                        fontSize: 18,
-                        color: Constant.colors.whiteColor
-                    },
-                    headerStyle: {
-                        elevation: 0,
-                        backgroundColor: '#32353a',
-                    },
-                    headerRight: () => (
-                        <View style={{marginRight: 10}}>
-                            <MaterialCommunityIcons
-                                name="logout"
-                                size={30}
-                                color={Constant.colors.whiteColor}
-                                onPress={() => logout()}
-                            />
-                        </View>
-                    ),
-                    headerLeft: () => (
-                        <View style={{marginLeft: 10}}>
-                            <MaterialCommunityIcons
-                                name="arrow-left"
-                                size={30}
-                                color={Constant.colors.whiteColor}
-                                onPress={() => navigation.navigate('Home')}
-                            />
-                        </View>
-                    )
-                })}
-            /> */}
+            <Stack.Screen
+                name="HeroeDetail"
+                component={HeroeDetail}
+                options={{header: () => null}}
+                // options={({ navigation, route }) => ({
+                //     headerTitleAlign: 'center',
+                //     headerTitleStyle: {
+                //         fontSize: 18,
+                //         color: Constant.colors.whiteColor
+                //     },
+                //     headerStyle: {
+                //         elevation: 0,
+                //         backgroundColor: '#32353a',
+                //     },
+                //     headerRight: () => (
+                //         <View style={{marginRight: 10}}>
+                //             <MaterialCommunityIcons
+                //                 name="logout"
+                //                 size={30}
+                //                 color={Constant.colors.whiteColor}
+                //                 onPress={() => logout()}
+                //             />
+                //         </View>
+                //     ),
+                //     headerLeft: () => (
+                //         <View style={{marginLeft: 10}}>
+                //             <MaterialCommunityIcons
+                //                 name="arrow-left"
+                //                 size={30}
+                //                 color={Constant.colors.whiteColor}
+                //                 onPress={() => navigation.navigate('Home')}
+                //             />
+                //         </View>
+                //     )
+                // })}
+            />
         </Stack.Navigator>
     );
 };
