@@ -2,7 +2,7 @@ import React from 'react'
 import Svg, { Circle, Path, Rect } from 'react-native-svg';
 
 const SIZE = 30;
-const COLOR = "#fff";
+const COLOR = Constant.colors.whiteColor;
 
 export const AverngersIcon = ({ size, color}) => {
     return (

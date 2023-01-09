@@ -8,7 +8,6 @@ export const AuthProvider = ({children}) => {
 
     const login = async (email, pass) => {
         try {
-            // await auth().signInWithEmailAndPassword(email.toLowerCase(), password);
             if(email === 'mail@mail.com' && pass === 'asd123') {
                 setUser({
                     email,
@@ -21,17 +20,12 @@ export const AuthProvider = ({children}) => {
                 return false
             }
         } catch (e) {
-            console.log('Errorrrrrrrrrr => ', e);
             return e;
         }
     };
 
     const logout = async () => {
-        try {
-            await auth().signOut();
-        } catch (e) {
-            console.log(e);
-        }
+        
     };
 
     return (

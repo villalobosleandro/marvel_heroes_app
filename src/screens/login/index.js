@@ -4,7 +4,8 @@ import {
     Text, 
     StyleSheet, 
     TextInput ,
-    Button
+    Button,
+    ToastAndroid
 } from 'react-native'
 import { AuthContext } from './../../context/authProvider';
 import { AverngersIcon } from './../../components/Icons'
@@ -16,11 +17,10 @@ export const LoginScreen = ({navigation}) => {
 
     const onSubmit = async () => {
         const response = await login(text, pass);
-        console.log('response => ', response);
         try {
             navigation.navigate('HomeScreen')
         } catch (e) {
-
+            ToastAndroid.show("Ocurrió un error, intente mas tarde!", ToastAndroid.LONG);
         }
     }
     return (
@@ -29,7 +29,7 @@ export const LoginScreen = ({navigation}) => {
                 <AverngersIcon
                     size={120}
                 />
-                <Text>Marvel Program</Text>
+                <Text style={styles.textTitle}>{Constant.titleApp}</Text>
             </View>
 
             <View style={styles.inputsContainer}>
@@ -53,8 +53,6 @@ export const LoginScreen = ({navigation}) => {
                 <Button
                     onPress={() => onSubmit()}
                     title="Login"
-                    color="#841584"
-                    accessibilityLabel="Learn more about this purple button"
                 />
             </View>
         </View>
@@ -65,7 +63,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        backgroundColor: '#2A2E43'
+        backgroundColor: Constant.colors.backgroundColorPrimary
     },
     logo: {
         paddingVertical: 30, 
@@ -80,6 +78,10 @@ const styles = StyleSheet.create({
         margin: 12,
         borderWidth: 1,
         padding: 10,
-        color: '#fff'
+        color: Constant.colors.whiteColor,
       },
+      textTitle: {
+        color: Constant.colors.whiteColor,
+        fontSize: 24
+      }
 })

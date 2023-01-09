@@ -12,13 +12,6 @@ const windowWidth = Dimensions.get('window').width;
 
 export const CardCharacter = props => {
     const { item, navigation } = props;
-    const colorDot = {
-        'Alive': '#00FF00',
-        'unknown': '#FFFF00',
-        'Dead': '#FF0000'
-    };
-
-    const backgroundColorDot = colorDot[item.status];
 
     return (
         <TouchableOpacity
@@ -37,9 +30,8 @@ export const CardCharacter = props => {
                 style={styles.containerRight}
             >
                 <Text style={styles.name}>{item.name}</Text>
-
                 <Text style={styles.subtitle}>Numero de apariciones:</Text>
-                <Text style={{color: '#fff'}}>{item.comics.available}</Text>
+                <Text style={{color: Constant.colors.whiteColor}}>{item.comics.available}</Text>
             </View>
 
         </TouchableOpacity>
@@ -76,7 +68,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 8
     },
     name: {
-        color: '#fff',
+        color: Constant.colors.whiteColor,
         fontSize: 18,
         fontWeight: 'bold'
     },
@@ -89,13 +81,8 @@ const styles = StyleSheet.create({
         width: 10,
         borderRadius: 20
     },
-    subTitle: {
-        color: '#fff',
-        fontWeight: 'bold',
-        paddingLeft: 10
-    },
     subtitle: {
-        color: '#808080',
+        color: Constant.colors.whiteColor,
         paddingTop: 10
     }
 });
